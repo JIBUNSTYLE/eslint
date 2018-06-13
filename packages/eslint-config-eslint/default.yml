@@ -6,22 +6,35 @@ plugins:
     - "node"
 
 rules:
-    array-bracket-spacing: "error"
+    array-bracket-spacing: ["error", "never"]
     array-callback-return: "error"
     arrow-body-style: ["error", "as-needed"]
     arrow-parens: ["error", "as-needed"]
     arrow-spacing: "error"
-    indent: ["error", 4, {SwitchCase: 1}]
+    indent: ["error", 4
+        , { 
+            "SwitchCase": 1
+            , "VariableDeclarator": 1
+            , "MemberExpression": 1
+            , "FunctionDeclaration": {"parameters": "first"}
+            , "FunctionExpression": {"parameters": "first"}
+            , "CallExpression": {"arguments": 1}
+            , "ArrayExpression": "first"
+            , "ObjectExpression": "first"
+        }
+    ]
+
     block-spacing: "error"
-    brace-style: ["error", "1tbs"]
+    brace-style: ["error", "1tbs", { "allowSingleLine": true }]
     camelcase: "error"
     callback-return: ["error", ["cb", "callback", "next"]]
     class-methods-use-this: "error"
-    comma-dangle: "error"
+    comma-dangle: ["error", "only-multiline"]
     comma-spacing: "error"
-    comma-style: ["error", "last"]
+    comma-style: ["error", "first"]
     computed-property-spacing: "error"
     consistent-return: "error"
+    consistent-this: ["error", "_self"]
     curly: ["error", "all"]
     default-case: "error"
     dot-location: ["error", "property"]
